@@ -16,19 +16,42 @@ export default function Question({
 }) {
   // 组件内部状态，用于跟踪用户的答案选择及其正确性
   const [answer, setAnswer] = useState({
-    selectedAnswer: '', // 用户选中的答案
-    isCorrect: null // 答案是否正确，初始为null
+    // 用户选中的答案
+    selectedAnswer: '',
+    // 答案是否正确，初始为null
+    isCorrect: null 
   });
 
   let timer = 10000;
+
+  /*
+    第一行代码检查answer.selectedAnswer是否有值。
+
+    如果有（意味着selectedAnswer属性不是null或undefined），
+    则将timer变量设置为1000（毫秒）。
+    
+    这可能用于控制某种操作（如显示答案、加载新问题等）的延时
+  */
 
   if (answer.selectedAnswer) {
     timer = 1000;
   }
 
+  /*
+    第二行代码检查answer.isCorrect属性是否不是null。
+    
+    如果这个属性已经被设定成了一个布尔值（无论是true还是false），timer就会被设置成2000毫秒
+  */
   if (answer.isCorrect !== null) {
     timer = 2000;
   }
+
+  /*
+    这行代码的意图是，只有当isCorrect属性被明确设置为true或false时（即已经判断了答案的正确性），
+    timer才会被设定为2000毫秒。
+    
+    如果isCorrect是null，表示答案的正确性尚未被判断，这时不会改变timer的值。
+  */
 
   // 处理答案选择的函数
   function handleSelectAnswer(answer) {

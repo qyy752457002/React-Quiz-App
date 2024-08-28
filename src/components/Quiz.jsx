@@ -5,7 +5,7 @@ import { useState, useCallback } from 'react';
 import QUESTIONS from '../question.jsx';
 // 导入Question组件
 import Question from './Question.jsx';
-
+// 导入Summary组件
 import Summary from './Summary.jsx';
 
 // 定义Quiz组件

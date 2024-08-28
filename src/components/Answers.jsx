@@ -47,7 +47,8 @@ export default function Answers({
 
         // 返回一个li元素，其中包含一个button。
         // button的onClick事件处理函数设置为调用onSelect函数并传递当前答案。
-        // className设置为之前确定的CSS类。如果answerState不为空，button会被禁用
+        // className设置为之前确定的CSS类。
+        // 如果answerState不为空，button会被禁用
         return (
           <li key={answer} className="answer">
             <button

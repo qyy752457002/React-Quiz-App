@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+    react-nginx-app:
+      stdin_open: true
+      build:
+        # Dockerfile 所在目录
+        context: .
+        # Dockerfile 文件名称
+        dockerfile: Dockerfile
+      # 宿主机上的 4000 端口会映射到容器内的 80 端口
+      ports:
+        - 4000:80
+      # 环境变量
+      # 设置为 true 表示使用轮询，而不是默认的 inotify
+      environment:
+          - CHOKIDAR_USEPOLLING=true
+      # 使用的镜像名称
+      image: krismile98/react-nginx-app:1.0

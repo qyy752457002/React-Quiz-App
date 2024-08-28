@@ -1,0 +1,3 @@
+https://localhost:4000/app
+
+4000 来自于 Docker compose 文件里 宿主机上的 4000 端口
