@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/deploy-github/",
+  base: "/React-Quiz-App/", // github repo name
   plugins: [react()],
 })
