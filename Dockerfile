@@ -2,22 +2,22 @@
 # Build docker image of react-app 
 FROM node:21.1.0 as build-stage 
 
-# establish working directory 
-RUN mkdir /usr/app
-
 # set docker working directory
 WORKDIR /usr/app
 
-# copy all files from current directory to docker working directory
-COPY . .
+# Copy package.json and package-lock.json to docker working directory
+COPY ./package*.json .
 
-# install dependencies
-RUN npm install
+# Install dependencies.
+RUN npm install 
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
 ENV PATH /usr/app/node_modules/.bin:$PATH
 
-# build the app 
+# copy rest of files from current directory to docker working directory
+COPY . .
+
+# Build the React app.
 RUN npm run build
 
 # Stage 2
